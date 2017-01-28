@@ -9,8 +9,7 @@ The API coverage is extremely minimal at this time, exposing only the functional
 
 ## How to use it
 
-Call the static SapientGuardian.MarathonClient.ClientFactory.V2Client method with the URL of your V2 Marathon API (e.g. http://marathon.mycluster.local/v2/), and optionally provide an authorization token.   
-
+Call the static SapientGuardian.MarathonClient.ClientFactory.V2Client method with the URL of your V2 Marathon API (e.g. http://marathon.mycluster.local/v2/), and optionally provide an authorization token.
     ```C#
     
     var myClient = SapientGuardian.MarathonClient.ClientFactory.V2Client("http://marathon.mycluster.local/v2/");
