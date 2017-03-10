@@ -4,9 +4,11 @@ install:
 - appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/v4.0.0/nuget.exe
 build_script:
 - cmd: >-
-    dotnet restore -v Warning	
+    dotnet restore	
 
     dotnet pack .\src\SapientGuardian.MarathonClient -o .\artifacts\SapientGuardian.MarathonClient -c Release
+
+    move .\src\SapientGuardian.MarathonClient\artifacts .\
 test_script:
 - cmd: >-
     cd test\SapientGuardian.MarathonClient.Tests
