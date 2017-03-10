@@ -4,7 +4,7 @@
 [![NuGet Package](https://img.shields.io/nuget/vpre/SapientGuardian.MarathonClient.svg)](https://www.nuget.org/packages/SapientGuardian.MarathonClient/)
 
 ## Description
-SapientGuardian.MarathonClient is a .NET client library for [Marathon](https://mesosphere.github.io/marathon/), a container orchestration platform for Mesos and DC/OS.  
+SapientGuardian.MarathonClient is a client library for [Marathon](https://mesosphere.github.io/marathon/), a container orchestration platform for Mesos and DC/OS.  
 The API coverage is extremely minimal at this time, exposing only the functionality I need in my other projects, but you may find it useful too.
 
 ## How to use it
