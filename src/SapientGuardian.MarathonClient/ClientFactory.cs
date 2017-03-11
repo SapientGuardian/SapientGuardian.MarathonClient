@@ -40,7 +40,7 @@ namespace SapientGuardian.MarathonClient
             httpClient.BaseAddress = new Uri(baseAddress);
             if (!string.IsNullOrEmpty(authToken))
             {
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization: token", authToken);
+                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", $"token={authToken}");
             }
             return new Implementations.V2.Client(httpClient);
         }

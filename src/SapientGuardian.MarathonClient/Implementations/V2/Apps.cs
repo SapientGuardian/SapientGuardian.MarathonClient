@@ -35,14 +35,23 @@ namespace SapientGuardian.MarathonClient.Implementations.V2
             return new App(jResponse.Value<JObject>("app"));
         }
 
-        public async Task Update(App app)
+        public async Task Update(App app, bool force = false)
         {
+            var forceStr = force ? "?force=true" : string.Empty;
+
             // Workaround for Marathon behavior that gives you items in the GET that cannot be send back in the PUT
             var payload = (JObject)app.appJobj.DeepClone();
             payload.Remove("uris");
             payload.Remove("version");
-            var response = await httpClient.PutAsync($"apps{app.Id}", new StringContent(payload.ToString(), System.Text.Encoding.UTF8, "application/json"));
+            var response = await httpClient.PutAsync($"apps{app.Id}{forceStr}", new StringContent(payload.ToString(), System.Text.Encoding.UTF8, "application/json"));
             response.EnsureSuccessStatusCode();
+        }
+
+        public async Task Restart(string id, bool force = false)
+        {
+            var forceStr = force ? "?force=true" : string.Empty;
+            var response = await httpClient.PostAsync($"apps{id}/restart{forceStr}", new StringContent("{}", System.Text.Encoding.UTF8, "application/json"));
+            response.EnsureSuccessStatusCode();            
         }
     }
 }

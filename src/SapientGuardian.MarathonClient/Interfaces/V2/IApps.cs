@@ -28,6 +28,12 @@ namespace SapientGuardian.MarathonClient.Interfaces.V2
         /// Updates an existing App
         /// </summary>
         /// <param name="app">The App to update</param>        
-        Task Update(App app);
+        Task Update(App app, bool force = false);
+
+        /// <summary>
+        /// Restarts an App
+        /// </summary>
+        /// <param name="id">The id of the App</param>        
+        Task Restart(string id, bool force = false);
     }
 }
